@@ -1,8 +1,18 @@
---- 
-- 
-  become: true
+---
+# host section
+- name : this playbook will create docker container
   hosts: all
-  tasks: 
-    - 
-      name: "create docker container"
-      shell: "docker run -d --name b27_container -p 1234:8080 deepanshu1994/deep"
+  become: true
+
+# task section 
+  tasks:
+  - name : remove docker container  
+    command : docker rm -f TC1
+    ignore_error: yes
+
+  - name: remove image
+    command : docker rmi deepanshu1994/deep
+    ignore_error: yes
+
+  - name : Create container 
+    command : docker run -d -p 8080:8080 --name TC1 deepanshu1994/deep
