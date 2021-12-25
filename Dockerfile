@@ -1,4 +1,4 @@
 # Pull base image 
-From tomcat:10.0.10-jre11 
+From tomcat:8-jre8
 
 COPY ./webapp.war /usr/local/tomcat/webapps
