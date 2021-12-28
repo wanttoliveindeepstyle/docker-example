@@ -4,6 +4,14 @@
   hosts: webserver
   become: true
   tasks:
+   - name: this task will remove old image
+     command: docker rmi deepanshu1994/tomcat
+     ignore_error: yes
+
+   - name: this will remove container
+     command: docker rm -f tomcat
+     ignore_error: yes
+
    - name: this task will pull docker image form hub
      command: docker pull deepanshu1994/tomcat
 
