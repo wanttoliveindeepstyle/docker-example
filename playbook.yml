@@ -5,7 +5,7 @@
   become: true
   tasks:
    - name: this task will remove old image
-     command: docker rmi deepanshu1994/tomcat
+     command: docker rmi -f deepanshu1994/tomcat
 
    - name: this will remove container
      command: docker rm -f tomcat
