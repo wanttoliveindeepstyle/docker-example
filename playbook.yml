@@ -1,0 +1,11 @@
+---
+#header section
+- name: this playbook will create container
+  hosts: webserver
+  become: true
+  tasks:
+   - name: this task will pull docker image form hub
+     command: docker pull deepanshu1994/tomcat
+
+   - name: this task will create docker container
+     command: docker run -d --name tomcat -p 8080:8080 deepanshu1994/tomcat
